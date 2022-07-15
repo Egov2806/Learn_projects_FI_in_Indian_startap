@@ -5,6 +5,7 @@ import os
 import matplotlib.pyplot as plt
 
 # paths to files and folders
+# TODO: перенести все рабочие файлы в папку datasets
 folder_path='C:\\Users\\AlexanderMuntyanu\\Desktop\\ДатаФрейм Индийские Стартапы'
 file_path="C:\\Users\\AlexanderMuntyanu\\Desktop\\ДатаФрейм Индийские Стартапы\\Indian Startups - Funding  Investors Data February 2022.csv"
 
