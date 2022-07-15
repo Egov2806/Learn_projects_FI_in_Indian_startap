@@ -18,7 +18,7 @@ for file in os.listdir(folder_path):
 # TODO: find PyCharm short cuts and start learning them and USING!
 
 # next analyse startups_data instead of individual files and dataframes
-# print(startups_data.head(5))
+#print(startups_data.head(5))
 # print(startups_data.shape)
 # print(startups_data.info())
 
@@ -28,14 +28,18 @@ count_null=pd.DataFrame(startups_data.isnull().sum())
 cv_sector=pd.DataFrame(startups_data.Sector.value_counts().head())
 cv_location=pd.DataFrame(startups_data.Location.value_counts().head())
 discribe_data=pd.DataFrame(startups_data.Amount.describe())
+#calculate value financail investments per company
+amount_company=pd.DataFrame(startups_data.groupby('Company Name')['Amount'].sum())
+
 #save analyse date in new excel file and new sheet
 writer=pd.ExcelWriter('example.xlsx', engine='xlsxwriter')
 count_null.to_excel(writer, 'count_null')
 cv_sector.to_excel(writer, 'counts_value_col_sector')
 cv_location.to_excel(writer, 'counts_value_location')
 discribe_data.to_excel(writer, 'discribe data')
+amount_company.to_excel(writer, 'invest in company')
 writer.save()
 
 # build pie-charts showing ...
-# df['Sector'].value_counts().head(10).plot(kind ='pie', figsize = (6,6))
-# plt.show()
+df['Sector'].value_counts().head(10).plot(kind ='pie', figsize = (6,6))
+plt.show()
